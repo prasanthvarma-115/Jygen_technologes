@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>JYGEN Technologies</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --background: #ffffff;
+      --text: #080808;
+      --secondary-text: #384258;
+      --accent: #f58213;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+      background: var(--background);
+    }
+
+    body {
+      color: var(--text);
+      font-family: "Inter", sans-serif;
+      overflow-x: hidden;
+    }
+
+    .page {
+      position: relative;
+      min-height: 100vh;
+      padding: 0 5.9vw;
+      background: var(--background); 
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    /* Left content */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 53%;
+      padding-top: 22.1vh;
+    }
+
+    .hero-title {
+      font-size: clamp(52px, 5.95vw, 100px);
+      font-weight: 900;
+      line-height: 0.94;
+      letter-spacing: 0.01px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .orange-word {
+      color: var(--accent);
+    }
+
+    .hero-description {
+      width: 510px;
+      max-width: 100%;
+      margin-top: 36px;
+      color: var(--secondary-text);
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.8;
+      letter-spacing: -0.025em;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin-top: 47px;
+    }
+
+    .follow-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 213px;
+      height: 62px;
+      padding: 0 30px;
+      border-radius: 999px;
+      background: #080808;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.13em;
+      transition: opacity 0.2s ease;
+    }
+
+    .follow-button:hover {
+      opacity: 0.78;
+    }
+
+    .launching-soon {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* Logo placement */
+    .logo-wrapper {
+      position: absolute;
+      z-index: 1;
+      top: 15.5vh;
+      right: 4.8vw;
+      width: 39.5vw;
+      max-width: 665px;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--background);
+    }
+
+    .logo-image-card {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--background);
+      border: none;
+      box-shadow: none;
+      overflow: hidden;
+    }
+
+    .logo-image-card img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      background: var(--background);
+    }
+
+    /* Footer */
+    footer {
+      position: absolute;
+      z-index: 3;
+      left: 5.9vw;
+      right: 6.2vw;
+      bottom: 7.2vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+    }
+
+    .email-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      transition: opacity 0.2s ease;
+    }
+
+    .email-link:hover {
+      opacity: 0.65;
+    }
+
+    /* Smaller laptops */
+    @media (max-width: 1200px) {
+      .hero-content {
+        width: 55%;
+        padding-top: 22vh;
+      }
+
+      .hero-title {
+        font-size: clamp(45px, 6vw, 76px);
+        letter-spacing: 0.01px;
+      }
+
+      .hero-description {
+        width: 450px;
+        font-size: 15px;
+        line-height: 1.65;
+      }
+
+      .hero-actions {
+        margin-top: 35px;
+      }
+
+      .follow-button {
+        min-width: 175px;
+        height: 50px;
+      }
+
+      .logo-wrapper {
+        top: 14vh;
+        right: 3.8vw;
+        width: 41vw;
+      }
+    }
+
+    /* Tablet and mobile: perfectly centered layout */
+    @media (max-width: 850px) {
+      .page {
+        min-height: 100vh;
+        padding: 0 24px;
+      }
+
+      .hero {
+        min-height: auto;
+        width: 100%;
+        padding: 70px 0 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .hero-content {
+        width: 100%;
+        max-width: 650px;
+        padding-top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-title {
+        width: 100%;
+        font-size: clamp(42px, 8.5vw, 75px);
+        line-height: 0.96;
+        letter-spacing: 0.01px;
+        white-space: normal;
+        text-align: center;
+      }
+
+      .hero-description {
+        width: 100%;
+        max-width: 550px;
+        margin-top: 28px;
+        font-size: 15px;
+        line-height: 1.65;
+        text-align: center;
+      }
+
+      .hero-actions {
+        width: 100%;
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 22px;
+        flex-wrap: wrap;
+      }
+
+      .logo-wrapper {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        max-width: 580px;
+        margin: 65px auto 0;
+        aspect-ratio: 1 / 1;
+      }
+
+      footer {
+        left: 24px;
+        right: 24px;
+        bottom: 28px;
+        font-size: 14px;
+      }
+
+      .email-link {
+        font-size: 14px;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 520px) {
+      .page {
+        padding: 0 22px;
+      }
+
+      .hero {
+        padding-top: 65px;
+        padding-bottom: 125px;
+      }
+
+      .hero-content {
+        max-width: 100%;
+      }
+
+      .hero-title {
+        font-size: clamp(38px, 11.5vw, 62px);
+        letter-spacing: 0.01px;
+        text-align: center;
+      }
+
+      .hero-description {
+        max-width: 340px;
+        margin-top: 25px;
+        font-size: 14px;
+        line-height: 1.65;
+        text-align: center;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        gap: 22px;
+        margin-top: 30px;
+      }
+
+      .follow-button {
+        min-width: 190px;
+        height: 54px;
+      }
+
+      .launching-soon {
+        font-size: 12px;
+        text-align: center;
+      }
+
+      .logo-wrapper {
+        width: 100%;
+        max-width: 380px;
+        margin-top: 60px;
+      }
+
+      footer {
+        left: 22px;
+        right: 22px;
+        bottom: 24px;
+        font-size: 12px;
+        letter-spacing: 0.1em;
+      }
+
+      .email-link {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          BUILDING FOR<br />
+          WHAT’S <span class="orange-word">NEXT.</span>
+        </h1>
+
+        <p class="hero-description">
+          <span class="orange-word">JYGEN</span> is a future focused technology company building websites,
+          software, AI systems and intelligent automation for what comes next.
+        </p>
+
+        <div class="hero-actions">
+          <a
+            class="follow-button"
+            href="https://www.instagram.com/jygen.tech/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            FOLLOW US
+          </a>
+
+          <span class="launching-soon">LAUNCHING SOON</span>
+        </div>
+      </div>
+
+      <div class="logo-wrapper">
+        <div class="logo-image-card">
+          <img
+            src="https://res.cloudinary.com/inasnv6c/image/upload/f_auto,q_auto/JYGEN_LOGO_GLASS"
+            alt="JYGEN Glass Logo"
+          />
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>© JYGEN</span>
+
+      <a class="email-link" href="mailto:info@jygen.tech">
+        info@jygen.tech
+      </a>
+    </footer>
+  </main>
+</body>
+</html>
