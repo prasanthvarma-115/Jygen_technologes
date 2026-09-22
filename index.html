@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>JYGEN Technologies</title>
+  <title>JYGEN Technologies — Building for What's Next</title>
 
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
@@ -17,6 +17,7 @@
       --text: #080808;
       --secondary-text: #384258;
       --accent: #f58213;
+      --border: rgba(8, 8, 8, 0.12);
     }
 
     * {
@@ -25,24 +26,43 @@
       box-sizing: border-box;
     }
 
-    html,
-    body {
-      width: 100%;
-      min-height: 100%;
-      background: var(--background);
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
+      min-width: 100%;
+      min-height: 100%;
+      overflow-x: hidden;
+      background: var(--background);
       color: var(--text);
       font-family: "Inter", sans-serif;
-      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
-    .page {
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .orange-word {
+      color: var(--accent);
+    }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero-page {
       position: relative;
       min-height: 100vh;
       padding: 0 5.9vw;
-      background: var(--background); 
+      background: var(--background);
     }
 
     .hero {
@@ -52,25 +72,22 @@
       align-items: flex-start;
     }
 
-    /* Left content */
     .hero-content {
       position: relative;
       z-index: 2;
       width: 53%;
       padding-top: 22.1vh;
+      animation: heroReveal 1s cubic-bezier(0.22, 1, 0.36, 1) both;
     }
 
     .hero-title {
+      margin: 0;
       font-size: clamp(52px, 5.95vw, 100px);
       font-weight: 900;
       line-height: 0.94;
-      letter-spacing: 0.01px;
+      letter-spacing: -0.055em;
       text-transform: uppercase;
       white-space: nowrap;
-    }
-
-    .orange-word {
-      color: var(--accent);
     }
 
     .hero-description {
@@ -91,37 +108,88 @@
       margin-top: 47px;
     }
 
+    /* =========================================================
+       PREMIUM BUTTON — NO ARROW
+    ========================================================= */
+
     .follow-button {
+      position: relative;
+      isolation: isolate;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       min-width: 213px;
       height: 62px;
-      padding: 0 30px;
+      padding: 0 34px;
+      overflow: hidden;
+      border: 1px solid var(--text);
       border-radius: 999px;
-      background: #080808;
+      background: var(--text);
       color: #ffffff;
       text-decoration: none;
       font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.13em;
-      transition: opacity 0.2s ease;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-align: center;
+      transition:
+        transform 0.3s ease,
+        color 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+    }
+
+    .follow-button::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: var(--accent);
+      transform: translateY(105%);
+      transition:
+        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .follow-button:hover {
-      opacity: 0.78;
+      color: #ffffff;
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .follow-button:hover::before {
+      transform: translateY(0);
+    }
+
+    .follow-button:active {
+      transform: translateY(-1px) scale(0.98);
     }
 
     .launching-soon {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
       color: var(--accent);
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       white-space: nowrap;
     }
 
-    /* Logo placement */
+    .launching-soon::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      flex: 0 0 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(245, 130, 19, 0.1);
+      animation: pulse 2s infinite;
+    }
+
+    /* =========================================================
+       LOGO
+    ========================================================= */
+
     .logo-wrapper {
       position: absolute;
       z-index: 1;
@@ -134,6 +202,8 @@
       align-items: center;
       justify-content: center;
       background: var(--background);
+      animation: logoReveal 1.2s cubic-bezier(0.22, 1, 0.36, 1)
+        0.15s both;
     }
 
     .logo-image-card {
@@ -142,35 +212,166 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--background);
-      border: none;
-      box-shadow: none;
       overflow: hidden;
+      background: var(--background);
     }
 
     .logo-image-card img {
-      display: block;
       width: 100%;
       height: 100%;
       object-fit: contain;
       object-position: center;
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .logo-wrapper:hover .logo-image-card img {
+      transform: scale(1.035) rotate(1deg);
+    }
+
+    /* =========================================================
+       WHAT WE BUILD
+    ========================================================= */
+
+    .what-we-build-section {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      padding: 150px 5.9vw 145px;
       background: var(--background);
     }
 
-    /* Footer */
-    footer {
+    .what-we-build-inner {
+      width: 100%;
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+
+    .what-we-build-heading {
+      margin: 0 0 80px;
+      color: var(--text);
+      font-size: clamp(48px, 6vw, 96px);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.055em;
+      text-transform: uppercase;
+    }
+
+    .what-we-build-heading span {
+      color: var(--accent);
+    }
+
+    .what-we-build-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+      perspective: 1200px;
+    }
+
+    .what-we-build-card {
+      position: relative;
+      isolation: isolate;
+      min-width: 0;
+      overflow: hidden;
+      padding: 32px 28px 36px;
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      background: #ffffff;
+      transform-style: preserve-3d;
+      transition:
+        transform 0.2s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .what-we-build-card::before {
+      content: "";
       position: absolute;
-      z-index: 3;
-      left: 5.9vw;
-      right: 6.2vw;
-      bottom: 7.2vh;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background: radial-gradient(
+        260px circle at var(--card-x, 50%) var(--card-y, 50%),
+        rgba(245, 130, 19, 0.08),
+        transparent 70%
+      );
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .what-we-build-card:hover {
+      border-color: rgba(245, 130, 19, 0.75);
+      box-shadow: 0 24px 60px rgba(8, 8, 8, 0.08);
+    }
+
+    .what-we-build-card:hover::before {
+      opacity: 1;
+    }
+
+    .what-we-build-icon {
+      width: 100%;
+      height: 210px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 32px;
+      transform: translateZ(25px);
+    }
+
+    .what-we-build-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.4s ease;
+    }
+
+    .what-we-build-card:hover .what-we-build-icon img {
+      transform: scale(1.045);
+    }
+
+    .what-we-build-number {
+      margin-bottom: 18px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      transform: translateZ(15px);
+    }
+
+    .what-we-build-title {
+      color: var(--text);
+      font-size: clamp(21px, 1.8vw, 30px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+      text-transform: uppercase;
+      transform: translateZ(15px);
+    }
+
+    .what-we-build-description {
+      margin-top: 18px;
+      color: var(--secondary-text);
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.65;
+      transform: translateZ(10px);
+    }
+
+    /* =========================================================
+       FOOTER — NO TOP LINE
+    ========================================================= */
+
+    .site-footer {
+      width: 100%;
+      padding: 38px 5.9vw 44px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 24px;
+      background: var(--background);
       color: var(--accent);
       font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
+      font-weight: 700;
+      letter-spacing: 0.12em;
     }
 
     .email-link {
@@ -185,10 +386,69 @@
     }
 
     .email-link:hover {
-      opacity: 0.65;
+      opacity: 0.6;
     }
 
-    /* Smaller laptops */
+    /* =========================================================
+       SCROLL REVEAL
+    ========================================================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       ANIMATIONS
+    ========================================================= */
+
+    @keyframes heroReveal {
+      from {
+        opacity: 0;
+        transform: translateY(35px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes logoReveal {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes pulse {
+      0%,
+      100% {
+        box-shadow: 0 0 0 5px rgba(245, 130, 19, 0.1);
+      }
+
+      50% {
+        box-shadow: 0 0 0 9px rgba(245, 130, 19, 0.02);
+      }
+    }
+
+    /* =========================================================
+       LAPTOP
+    ========================================================= */
+
     @media (max-width: 1200px) {
       .hero-content {
         width: 55%;
@@ -197,7 +457,6 @@
 
       .hero-title {
         font-size: clamp(45px, 6vw, 76px);
-        letter-spacing: 0.01px;
       }
 
       .hero-description {
@@ -213,6 +472,7 @@
       .follow-button {
         min-width: 175px;
         height: 50px;
+        padding: 0 28px;
       }
 
       .logo-wrapper {
@@ -220,20 +480,44 @@
         right: 3.8vw;
         width: 41vw;
       }
+
+      .what-we-build-grid {
+        gap: 20px;
+      }
     }
 
-    /* Tablet and mobile: perfectly centered layout */
+    /* =========================================================
+       TABLET
+    ========================================================= */
+
+    @media (max-width: 1100px) {
+      .what-we-build-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .what-we-build-card {
+        padding: 30px 26px 34px;
+      }
+
+      .what-we-build-icon {
+        height: 240px;
+      }
+    }
+
+    /* =========================================================
+       TABLET AND MOBILE
+    ========================================================= */
+
     @media (max-width: 850px) {
-      .page {
-        min-height: 100vh;
+      .hero-page {
+        min-height: auto;
         padding: 0 24px;
       }
 
       .hero {
         min-height: auto;
         width: 100%;
-        padding: 70px 0 150px;
-        display: flex;
+        padding: 70px 0 110px;
         flex-direction: column;
         align-items: center;
         text-align: center;
@@ -252,7 +536,6 @@
         width: 100%;
         font-size: clamp(42px, 8.5vw, 75px);
         line-height: 0.96;
-        letter-spacing: 0.01px;
         white-space: normal;
         text-align: center;
       }
@@ -269,11 +552,9 @@
       .hero-actions {
         width: 100%;
         margin-top: 30px;
-        display: flex;
-        align-items: center;
         justify-content: center;
-        gap: 22px;
         flex-wrap: wrap;
+        gap: 22px;
       }
 
       .logo-wrapper {
@@ -283,40 +564,37 @@
         width: 100%;
         max-width: 580px;
         margin: 65px auto 0;
-        aspect-ratio: 1 / 1;
       }
 
-      footer {
-        left: 24px;
-        right: 24px;
-        bottom: 28px;
-        font-size: 14px;
+      .what-we-build-section {
+        padding: 110px 24px 100px;
       }
 
-      .email-link {
-        font-size: 14px;
+      .what-we-build-heading {
+        margin-bottom: 60px;
+      }
+
+      .site-footer {
+        padding: 32px 24px 38px;
       }
     }
 
-    /* Mobile */
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
     @media (max-width: 520px) {
-      .page {
+      .hero-page {
         padding: 0 22px;
       }
 
       .hero {
         padding-top: 65px;
-        padding-bottom: 125px;
-      }
-
-      .hero-content {
-        max-width: 100%;
+        padding-bottom: 95px;
       }
 
       .hero-title {
         font-size: clamp(38px, 11.5vw, 62px);
-        letter-spacing: 0.01px;
-        text-align: center;
       }
 
       .hero-description {
@@ -324,7 +602,6 @@
         margin-top: 25px;
         font-size: 14px;
         line-height: 1.65;
-        text-align: center;
       }
 
       .hero-actions {
@@ -336,11 +613,11 @@
       .follow-button {
         min-width: 190px;
         height: 54px;
+        padding: 0 30px;
       }
 
       .launching-soon {
         font-size: 12px;
-        text-align: center;
       }
 
       .logo-wrapper {
@@ -349,24 +626,68 @@
         margin-top: 60px;
       }
 
-      footer {
-        left: 22px;
-        right: 22px;
-        bottom: 24px;
+      .what-we-build-section {
+        padding: 85px 22px 80px;
+      }
+
+      .what-we-build-heading {
+        margin-bottom: 48px;
+        font-size: clamp(44px, 12vw, 70px);
+      }
+
+      .what-we-build-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .what-we-build-card {
+        padding: 28px 24px 32px;
+        border-radius: 22px;
+        transform: none !important;
+      }
+
+      .what-we-build-icon {
+        height: 230px;
+        margin-bottom: 26px;
+      }
+
+      .what-we-build-title {
+        font-size: 28px;
+      }
+
+      .site-footer {
+        padding: 28px 22px 32px;
         font-size: 12px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.08em;
       }
 
       .email-link {
         font-size: 12px;
       }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <main class="page">
+
+  <!-- =========================================================
+       PAGE ONE — HERO
+  ========================================================= -->
+
+  <main class="hero-page">
     <section class="hero">
+
       <div class="hero-content">
         <h1 class="hero-title">
           BUILDING FOR<br />
@@ -374,13 +695,14 @@
         </h1>
 
         <p class="hero-description">
-          <span class="orange-word">JYGEN</span> is a future focused technology company building websites,
-          software, AI systems and intelligent automation for what comes next.
+          <span class="orange-word">JYGEN</span> is a future focused technology
+          company building Websites &amp; Apps, Software, AI systems and
+          intelligent automation for what comes next.
         </p>
 
         <div class="hero-actions">
           <a
-            class="follow-button"
+            class="follow-button magnetic"
             href="https://www.instagram.com/jygen.tech/"
             target="_blank"
             rel="noopener noreferrer"
@@ -388,7 +710,9 @@
             FOLLOW US
           </a>
 
-          <span class="launching-soon">LAUNCHING SOON</span>
+          <span class="launching-soon">
+            LAUNCHING SOON
+          </span>
         </div>
       </div>
 
@@ -400,15 +724,233 @@
           />
         </div>
       </div>
+
     </section>
-
-    <footer>
-      <span>© JYGEN</span>
-
-      <a class="email-link" href="mailto:info@jygen.tech">
-        info@jygen.tech
-      </a>
-    </footer>
   </main>
+
+  <!-- =========================================================
+       PAGE TWO — WHAT WE BUILD
+  ========================================================= -->
+
+  <section class="what-we-build-section">
+    <div class="what-we-build-inner">
+
+      <h2 class="what-we-build-heading reveal">
+        WHAT WE <span>BUILD.</span>
+      </h2>
+
+      <div class="what-we-build-grid">
+
+        <!-- WEB & APPS -->
+        <article class="what-we-build-card reveal tilt-card">
+          <div class="what-we-build-icon">
+            <img
+              src="https://res.cloudinary.com/inasnv6c/image/upload/v1790011849/JYGEN_WEB_APPS_ICON.png"
+              alt="Web and Apps"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="what-we-build-number">01</div>
+
+          <h3 class="what-we-build-title">
+            WEB &amp; APPS
+          </h3>
+
+          <p class="what-we-build-description">
+            Modern websites and intuitive digital experiences built for
+            performance, usability and growth.
+          </p>
+        </article>
+
+        <!-- SOFTWARE -->
+        <article class="what-we-build-card reveal tilt-card">
+          <div class="what-we-build-icon">
+            <img
+              src="https://res.cloudinary.com/inasnv6c/image/upload/v1790011885/JYGEN_SOFTWARE_ICON.png"
+              alt="Software Development"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="what-we-build-number">02</div>
+
+          <h3 class="what-we-build-title">
+            SOFTWARE
+          </h3>
+
+          <p class="what-we-build-description">
+            Powerful and scalable software solutions designed around real
+            business needs.
+          </p>
+        </article>
+
+        <!-- AI SYSTEMS -->
+        <article class="what-we-build-card reveal tilt-card">
+          <div class="what-we-build-icon">
+            <img
+              src="https://res.cloudinary.com/inasnv6c/image/upload/v1790011903/JYGEN_AI_SYSTEMS_ICON.png"
+              alt="AI Systems"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="what-we-build-number">03</div>
+
+          <h3 class="what-we-build-title">
+            AI SYSTEMS
+          </h3>
+
+          <p class="what-we-build-description">
+            Intelligent AI-powered systems that help businesses work smarter
+            and move faster.
+          </p>
+        </article>
+
+        <!-- AUTOMATIONS -->
+        <article class="what-we-build-card reveal tilt-card">
+          <div class="what-we-build-icon">
+            <img
+              src="https://res.cloudinary.com/inasnv6c/image/upload/v1790011917/JYGEN_AUTOMATIONS_ICON.png"
+              alt="Intelligent Automations"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="what-we-build-number">04</div>
+
+          <h3 class="what-we-build-title">
+            AUTOMATIONS
+          </h3>
+
+          <p class="what-we-build-description">
+            Smart automation systems that simplify workflows and eliminate
+            repetitive tasks.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FINAL FOOTER
+  ========================================================= -->
+
+  <footer class="site-footer">
+    <span>© JYGEN</span>
+
+    <a
+      class="email-link"
+      href="mailto:info@jygen.tech"
+    >
+      info@jygen.tech
+    </a>
+  </footer>
+
+  <script>
+    /* =========================================================
+       SCROLL REVEAL
+    ========================================================= */
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+
+    /* =========================================================
+       INTERACTIVE 3D CARDS
+    ========================================================= */
+
+    const tiltCards = document.querySelectorAll(".tilt-card");
+
+    tiltCards.forEach((card) => {
+      card.addEventListener("pointermove", (event) => {
+        if (window.innerWidth <= 850) return;
+
+        const rect = card.getBoundingClientRect();
+
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -3;
+        const rotateY = ((x - centerX) / centerX) * 3;
+
+        card.style.setProperty(
+          "--card-x",
+          `${(x / rect.width) * 100}%`
+        );
+
+        card.style.setProperty(
+          "--card-y",
+          `${(y / rect.height) * 100}%`
+        );
+
+        card.style.transform =
+          `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+      });
+
+      card.addEventListener("pointerleave", () => {
+        card.style.transform = "";
+      });
+    });
+
+    /* =========================================================
+       MAGNETIC BUTTON
+    ========================================================= */
+
+    const magneticButtons = document.querySelectorAll(".magnetic");
+
+    magneticButtons.forEach((button) => {
+      button.addEventListener("pointermove", (event) => {
+        if (window.innerWidth <= 850) return;
+
+        const rect = button.getBoundingClientRect();
+
+        const x = event.clientX - rect.left - rect.width / 2;
+        const y = event.clientY - rect.top - rect.height / 2;
+
+        button.style.transform =
+          `translate(${x * 0.08}px, ${y * 0.08}px)`;
+      });
+
+      button.addEventListener("pointerleave", () => {
+        button.style.transform = "";
+      });
+    });
+
+    /* =========================================================
+       REDUCED MOTION SUPPORT
+    ========================================================= */
+
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reducedMotion) {
+      document.querySelectorAll(".reveal").forEach((element) => {
+        element.classList.add("visible");
+      });
+    }
+  </script>
+
 </body>
 </html>
