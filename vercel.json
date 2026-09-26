@@ -1,0 +1,15 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    { "source": "/about/", "destination": "/about/index.html" },
+    { "source": "/contact/", "destination": "/contact/index.html" },
+    { "source": "/services/", "destination": "/services/index.html" },
+    { "source": "/services/software/", "destination": "/services/software/index.html" },
+    { "source": "/services/digital-products/", "destination": "/services/digital-products/index.html" },
+    { "source": "/services/ai-systems/", "destination": "/services/ai-systems/index.html" },
+    { "source": "/services/automation/", "destination": "/services/automation/index.html" },
+    { "source": "/services/iot/", "destination": "/services/iot/index.html" },
+    { "source": "/services/saas/", "destination": "/services/saas/index.html" },
+    { "source": "/services/custom-systems/", "destination": "/services/custom-systems/index.html" }
+  ]
+}

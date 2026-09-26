@@ -1,0 +1,228 @@
+/* JYGEN type system: open medium-weight headings and quiet, legible body copy. */
+:root {
+  font-family: Manrope, Inter, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body, button, input, select, textarea {
+  font-family: Manrope, Inter, Arial, sans-serif;
+}
+.site-piece h1, .site-piece h2, .site-piece h3,
+.subpage h1, .subpage h2, .subpage h3 {
+  font-family: Manrope, Inter, Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: -.02em;
+  line-height: 1.2;
+}
+.site-piece p, .subpage p {
+  font-family: Manrope, Inter, Arial, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.header-cta, #landing .dark-button, #contact .project-cta,
+.subpage .button {
+  font-family: Manrope, Inter, Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.nav a, #footer .footer-list a { font-family: Manrope, Inter, Arial, sans-serif; font-weight: 400; letter-spacing: 0; }
+#footer .footer-name, #about .about-kicker, .subpage .eyebrow {
+  font-family: Manrope, Inter, Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: .12em;
+}
+/* Small section labels and footer headings follow the same Title Case rule. */
+#footer .footer-name, #faq .faq-kicker, .subpage .eyebrow, .subpage .examples-label {
+  text-transform: none;
+}
+/* Keep the section-label dots; the footer keeps its short orange line. */
+.subpage .eyebrow::before {
+  height: 8px;
+  background: radial-gradient(circle at 4px 50%, #f3692e 0 3.5px, transparent 4px);
+}
+#about .about-kicker::before {
+  height: 8px;
+  background: radial-gradient(circle at 4px 50%, #ed612a 0 3.5px, transparent 4px);
+}
+#faq .faq-kicker::before {
+  height: 8px;
+  background: radial-gradient(circle at 4px 50%, currentColor 0 3.5px, transparent 4px);
+}
+#footer .footer-name::after { height: 2px; background: #ff6124; }
+#footer .footer-wordmark { display: inline-flex; flex: none; width: 178px; height: auto; transform: none; line-height: 0; }
+#footer .footer-wordmark img { display: block; width: 100%; height: auto; }
+@media (max-width: 1180px) { #footer .footer-wordmark { width: 158px; } }
+@media (min-width: 851px) and (max-width: 1080px) { #footer .instagram span { display: none; } }
+@media (max-width: 570px) { #footer .footer-wordmark { width: clamp(133px, 36vw, 178px); } }
+
+/* Keep the existing orange interaction while giving small white button text sufficient contrast. */
+.header-cta:hover, .header-cta:focus-visible { background: #c54814; border-color: #c54814; }
+.subpage .contact-auth-lead, .subpage .contact-auth-consent,
+.subpage .contact-auth-note { color: #626262; }
+.subpage .contact-input-box input::placeholder,
+.subpage .contact-input-box textarea::placeholder { color: #646464; }
+.subpage .contact-auth-status { color: #943b14; }
+.subpage .contact-auth-submit:disabled { cursor: wait; opacity: .7; transform: none; }
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+/* Homepage */
+#landing .intro h1 { font-weight: 500; letter-spacing: -.02em; line-height: 1.16; }
+#landing .impact h2 { font-weight: 500; letter-spacing: -.02em; line-height: 1.2; }
+#landing .intro p, #landing .impact p { letter-spacing: 0; line-height: 1.48; }
+#landing .intro .brand-name { font-weight: 750; }
+#landing .work-link { font-weight: 500; letter-spacing: 0; }
+
+/* Services and three-step approach */
+#services .service-content h2 { font-weight: 500; letter-spacing: -.02em; line-height: 1.2; }
+#services .service-content p { letter-spacing: 0; line-height: 1.4; }
+#services .service-more { font-weight: 500; }
+#approach .intro h2 { font-weight: 500; letter-spacing: -.02em; line-height: 1.16; }
+#approach .intro p, #approach .step p { letter-spacing: 0; line-height: 1.5; }
+#approach .step h2 { font-weight: 500; letter-spacing: -.02em; line-height: 1.2; }
+
+/* About, technology, FAQ and closing invitation */
+#about .about-heading { font-size: clamp(36px,3.35vw,49px); font-weight: 500; letter-spacing: -.025em; line-height: 1.15; }
+#about .about-copy .intro { letter-spacing: 0; line-height: 1.55; }
+#about .frameworks h2 { font-size: clamp(33px,3.7vw,56px); font-weight: 500; letter-spacing: -.02em; line-height: 1.2; white-space: normal; }
+#about .frameworks p { letter-spacing: 0; }
+#capabilities .copy h2 { font-weight: 500; letter-spacing: -.02em; line-height: 1.22; }
+#capabilities .copy p { letter-spacing: 0; line-height: 1.48; }
+#faq .faq-intro h2 { font-weight: 500; letter-spacing: -.02em; line-height: 1.16; }
+#faq .faq-label { font-family: Manrope, Inter, Arial, sans-serif; font-weight: 500; letter-spacing: -.01em; }
+#faq .faq-answer p { letter-spacing: 0; }
+#contact .statement h2 { font-weight: 500; letter-spacing: -.02em; }
+#contact .statement p { letter-spacing: 0; line-height: 1.45; }
+#contact .hero h2 { font-size: clamp(49px,5.3vw,100px); font-weight: 500; letter-spacing: -.055em; line-height: 1.16; }
+#contact .hero h2 span:nth-child(n) { letter-spacing: inherit; }
+#contact .hero h2 span:nth-child(2) { letter-spacing: -.035em; }
+#contact .hero-subtitle { font-weight: 400; letter-spacing: 0; line-height: 1.45; }
+
+/* Detail pages use the same scale, weight and rhythm. */
+.subpage h1, .subpage h2, .subpage h3 { letter-spacing: -.02em; line-height: 1.2; }
+.subpage p { line-height: 1.55; }
+.subpage .intro-hero h1 { font-size: clamp(42px,5vw,72px); font-weight: 500; line-height: 1.16; }
+.subpage .section-top h2 { font-size: clamp(35px,3.8vw,55px); }
+.subpage .overview-card h3 { font-weight: 500; }
+.subpage .detail-head h2 { font-size: clamp(39px,3.7vw,55px); }
+.subpage .detail-columns h3 { font-weight: 500; }
+.subpage .outro h2 { font-size: clamp(38px,4.3vw,62px); }
+.subpage .contact-header h1 { font-size: clamp(42px,5vw,70px); line-height: 1.16; }
+.single-service .service-main h1 { font-size: clamp(40px,4.5vw,64px); font-weight: 500; letter-spacing: -.02em; line-height: 1.16; text-transform: none; }
+.single-service .service-main .lead { font-weight: 400; letter-spacing: 0; }
+.single-service .service-aside .serial { font-family: Manrope, Inter, sans-serif; font-weight: 500; }
+.single-service .block-heading h2, .single-service .service-cta h2,
+.about-page .about-section h2, .about-page .about-cta h2 { font-weight: 500; }
+.about-page .about-hero h1 { font-size: clamp(40px,4.5vw,64px); font-weight: 500; letter-spacing: -.02em; line-height: 1.16; text-transform: none; }
+.about-page .founder h3, .about-page .value h3 { font-weight: 500; }
+
+@media (max-width: 760px) {
+  #about .about-heading { font-size: clamp(36px,8vw,46px); }
+  #contact .hero h2 { font-size: clamp(38px,8.2vw,52px); }
+  .subpage .intro-hero h1 { font-size: clamp(42px,10vw,58px); }
+  .single-service .service-main h1 { font-size: clamp(39px,9vw,53px); }
+  .about-page .about-hero h1 { font-size: clamp(39px,9vw,54px); }
+}
+
+/* One complete dotted frame for each framed homepage section. */
+:root { --jygen-frame-stroke: #d9dde0; --jygen-frame-radius: 14px; }
+#services .services { padding-inline: 0; }
+#services .services-frame,
+#approach .approach,
+#about .frame,
+#capabilities .feature-grid,
+#faq .faq {
+  width: min(1258px, calc(100% - 48px));
+  max-width: 1258px;
+  margin-inline: auto;
+  border: 1px dashed var(--jygen-frame-stroke);
+  border-radius: var(--jygen-frame-radius);
+  background-color: #fff;
+  overflow: hidden;
+}
+#approach .approach { margin-block: 24px; }
+#about .frame, #capabilities .feature-grid, #faq .faq { margin-block: 24px; }
+#capabilities .feature:nth-last-child(-n+2) { border-bottom: 0; }
+#about .frameworks::before, #about .frameworks::after,
+#capabilities .feature:nth-child(3)::before,
+#capabilities .feature:nth-child(4)::before,
+#capabilities .feature:nth-child(4)::after,
+#faq .faq-list::before, #faq .faq-list::after { display: none; }
+
+/* Detail-page dotted cards use the same stroke and corner treatment. */
+.subpage .detail-frame, .subpage .example-card, .subpage .overview-grid,
+.single-service .service-hero, .single-service .content-block,
+.single-service .aside-copy, .about-page .about-section,
+.about-page .values { border-color: var(--jygen-frame-stroke); }
+.subpage .detail-frame, .subpage .example-card, .subpage .overview-grid,
+.single-service .service-hero, .single-service .content-block,
+.single-service .aside-copy, .about-page .about-section,
+.about-page .values { border-radius: var(--jygen-frame-radius); }
+.about-page .values { overflow: hidden; }
+
+@media (max-width: 760px) {
+  #services .services-frame, #approach .approach, #about .frame,
+  #capabilities .feature-grid, #faq .faq {
+    width: calc(100% - 24px);
+    max-width: none;
+  }
+  #approach .approach { padding-inline: 14px; }
+  #capabilities .feature:nth-last-child(2) { border-bottom: 1px dashed var(--jygen-frame-stroke); }
+  #capabilities .feature:last-child { border-bottom: 0; }
+}
+
+/* Mobile menu icon: circular black mark with three balanced white strokes. */
+@media (max-width: 990px) {
+  .menu-button {
+    position: relative;
+    flex: none;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: #fff;
+    box-shadow: none;
+  }
+  .menu-button::before {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    background: #050505;
+  }
+  .menu-button .menu-lines {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .menu-button .menu-lines span {
+    display: block;
+    width: 12px;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+    transition: transform .25s ease, opacity .18s ease, width .25s ease;
+  }
+  .menu-button .menu-lines span:nth-child(2) { width: 18px; }
+  .menu-button[aria-expanded="true"] .menu-lines span:first-child {
+    width: 16px;
+    transform: translateY(6px) rotate(45deg);
+  }
+  .menu-button[aria-expanded="true"] .menu-lines span:nth-child(2) { opacity: 0; }
+  .menu-button[aria-expanded="true"] .menu-lines span:last-child {
+    width: 16px;
+    transform: translateY(-6px) rotate(-45deg);
+  }
+  .menu-button:focus-visible { outline: 2px solid #f46729; outline-offset: 4px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .menu-button .menu-lines span { transition: none; }
+}
+
+/* Give the mobile hero artwork a little more room above its text group. */
+@media (max-width: 760px) {
+  #landing .hero-copy { margin-top: calc(clamp(325px, 60vw, 360px) + 18px); }
+}

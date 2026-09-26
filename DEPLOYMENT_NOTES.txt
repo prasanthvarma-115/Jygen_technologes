@@ -1,0 +1,13 @@
+JYGEN WEBSITE
+
+TO VIEW THE DOWNLOADED SITE
+Unzip the archive, then double-click 00_OPEN_WEBSITE.html (or index.html) inside the extracted folder. Opening the folder itself in a browser shows a directory listing, not the website. All page links use explicit .html paths and work without a local web server. Keep assets, about, services and contact in the same extracted folder as index.html.
+
+TO DEPLOY
+Deploy the contents of jygen-complete as the project root, including index.html, the about, services, contact, api, assets and supabase folders, robots.txt, sitemap.xml, favicon.ico and vercel.json. Keep the directory layout. On Vercel, the included rewrites map the canonical trailing-slash URLs to their HTML files. The 00_OPEN_WEBSITE.html file is only an optional local launcher. The currently public jygen.tech site is a different older deployment; uploading or opening this ZIP does not replace it.
+
+The site has an updated landing hero, an expanded About page, a two-panel Contact page adapted from the supplied design, a detailed Services page and seven individual service pages. Each actual page has its own title, description, canonical URL and social preview metadata. If the public domain changes, update all absolute canonical, Open Graph, schema and sitemap URLs.
+
+On the Contact page, the inquiry form posts to the server-only /api/contact endpoint. Direct submissions require a private Supabase table plus the SUPABASE_URL and SUPABASE_SECRET_KEY hosting environment variables. Follow CONTACT_DATABASE_SETUP.md. If the endpoint is not configured or delivery fails, the form opens an email draft addressed to info@jygen.tech; the visitor must press Send. Do not claim the direct form is receiving inquiries until a test row appears in Supabase.
+
+The supplied artwork is packaged locally in smaller WebP images. The contact background uses lighter variants; the homepage and About artwork use full-resolution variants. Individual service detail pages contain no content images. Run npm run dev to preview with working local routes and npm test to check the contact endpoint.

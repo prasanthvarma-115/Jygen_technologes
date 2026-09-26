@@ -1,0 +1,1 @@
+{"name":"jygen-preview","private":true,"scripts":{"dev":"node tools/local-server.mjs","test":"node --test tests/contact.test.js"}}
